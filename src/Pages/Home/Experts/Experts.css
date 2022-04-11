@@ -1,0 +1,14 @@
+.experts-section{
+    background-color: #6C5B7B;
+    padding-top: 60px;
+}
+
+.title-div{
+    top: -50px;
+    /* bottom: 50%; */
+    border-radius: 50px;
+    left: 25%;
+    right: 25%;
+    padding: 20px 0;
+
+}
