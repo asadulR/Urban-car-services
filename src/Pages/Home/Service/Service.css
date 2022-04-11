@@ -1,0 +1,17 @@
+.service-card{
+    background-color: #6C5B7B;
+}
+
+.card-btn{
+    background: linear-gradient(25deg, #F67280 0%, #C06C84 100%);
+}
+
+.card-btn:hover{
+    background: linear-gradient(25deg, #361172 0%, #495ea5 100%);
+
+}
+
+
+.service-card p {
+    color: black;
+}
