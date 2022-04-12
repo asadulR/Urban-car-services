@@ -21,3 +21,11 @@
 
 }
 
+.signup-link{
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 10px;
+    color: #F67280;
+    cursor: pointer;
+}
+
