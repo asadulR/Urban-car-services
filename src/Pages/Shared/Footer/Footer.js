@@ -6,8 +6,8 @@ const Footer = () => {
         return new Date().getFullYear();
     };
     return (
-        <footer>
-            <p>Copyright &copy; {getCurrentYear()}</p>
+        <footer className='text-center mt-5 pb-4'>
+            <p className=''>Copyright &copy; {getCurrentYear()}</p>
         </footer>
     );
 };
