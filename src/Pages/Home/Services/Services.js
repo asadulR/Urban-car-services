@@ -13,7 +13,7 @@ const Services = () => {
 
 
     return (
-        <section className='services-container pt-5'>
+        <section id='services' className='services-container pt-5'>
             <div className='container my-5'>
                 <h3 className='text-center text-white fw-bolder fs-1'>Our total services: {services.length}</h3>
 

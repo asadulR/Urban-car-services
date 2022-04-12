@@ -17,7 +17,7 @@ const experts = [
 ]
 const Experts = () => {
     return (
-        <section className=' experts-section position-relative'>
+        <section id='experts' className=' experts-section position-relative'>
             <div className="container">
                 <div className='title-div shadow position-absolute bg-success'>
                     <h2 className='text-center fs-1 fw-bolder pt-2 text-white'>Our Experts</h2>

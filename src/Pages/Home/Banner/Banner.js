@@ -21,8 +21,8 @@ const Banner = () => {
                         src={banner1}
                         alt="First slide"
                     />
-                    <Carousel.Caption>
-                        <h3>100% Satisfaction Guaranteed</h3>
+                    <Carousel.Caption className='d-none d-md-block'>
+                        <h3 className='sm-d-none'>100% Satisfaction Guaranteed</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -33,7 +33,7 @@ const Banner = () => {
                         alt="Second slide"
                     />
 
-                    <Carousel.Caption>
+                    <Carousel.Caption className='d-none d-md-block'>
                         <h3>Best Services in the City</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
@@ -45,7 +45,7 @@ const Banner = () => {
                         alt="Third slide"
                     />
 
-                    <Carousel.Caption>
+                    <Carousel.Caption className='d-none d-md-block'>
                         <h3>100% Authentic Products</h3>
                         <p>
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
