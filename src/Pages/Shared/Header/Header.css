@@ -1,3 +1,9 @@
 .nav-brand{
     text-decoration: none;
 }
+
+.signout-btn{
+    border: none;
+    background-color: #212529;
+    color: #b8babd;
+}
