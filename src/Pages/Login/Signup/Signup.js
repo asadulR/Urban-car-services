@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import '../Login/Login.css';
+import auth from '../../../firebase.init';
 
 
 const Signup = () => {
@@ -9,7 +11,17 @@ const Signup = () => {
     const passwordRef = useRef('');
     const confirmPasswordRef = useRef('');
 
+    const [error, setError] = useState('');
     const navigate = useNavigate();
+
+    
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
 
     const handleSignup = event => {
         event.preventDefault();
@@ -18,21 +30,26 @@ const Signup = () => {
         const password = event.target.password.value;
         const confirmPassword = event.target.confirmPassword.value;
 
-        console.log(name, email, password, confirmPassword)
+
+        if(password === confirmPassword){
+            createUserWithEmailAndPassword(email, password)
+        }else{
+            setError('Incorrect Password');
+        }
 
     }
 
 
-
-
-
+    if(user){
+        navigate('/home');
+    }
 
 
     const navigateLogin = () => {
         navigate('/login')
     }
 
-    
+
     return (
         <div className='container'>
             <div className='form-container'>
@@ -58,6 +75,7 @@ const Signup = () => {
                         <Form.Label>Confirm Password</Form.Label>
                         <Form.Control ref={confirmPasswordRef} required name='confirmPassword' type="password" placeholder="Confirm Password" />
                     </Form.Group>
+                    <p className='text-danger'>{error}</p>
                     <div className='text-center mt-5'>
                         <Button className='login-btn py-2 fs-5' type="submit">
                             Signup
