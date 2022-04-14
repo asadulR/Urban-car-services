@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import '../Login/Login.css';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 const Signup = () => {
@@ -53,26 +54,19 @@ const Signup = () => {
     return (
         <div className='container'>
             <div className='form-container'>
-                <h2 className='text-center mb-5 fw-bold login-title'>Please Signup</h2>
+                <h2 className='text-center mb-5 fw-bold login-title'>Please Sign up</h2>
                 <Form onSubmit={handleSignup}>
                     <Form.Group className="mb-3" controlId="formName">
-                        <Form.Label>Name</Form.Label>
                         <Form.Control type="text" name='name' placeholder="Your name" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
                         <Form.Control ref={emailRef} name='email' required type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
                         <Form.Control ref={passwordRef} required name='password' type="password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formConfirmPassword">
-                        <Form.Label>Confirm Password</Form.Label>
                         <Form.Control ref={confirmPasswordRef} required name='confirmPassword' type="password" placeholder="Confirm Password" />
                     </Form.Group>
                     <p className='text-danger'>{error}</p>
@@ -82,7 +76,9 @@ const Signup = () => {
                         </Button>
                     </div>
                 </Form>
-                <p className='mt-4'>Already have an account ? <span onClick={navigateLogin} className='signup-link'>Login</span></p>
+                <p className='mt-4'>Already have an account ? <span onClick={navigateLogin} className='signup-link'>Log in</span></p>
+
+                <SocialLogin/>
             </div>
         </div>
     );

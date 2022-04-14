@@ -1,0 +1,15 @@
+.left-hr{
+    height: 1px;
+    background-color: gray;
+    width: 250px;
+}
+.right-hr{
+    height: 1px;
+    background-color: gray;
+    width: 250px;
+}
+
+.w-90{
+    width: 90%;
+    margin: 20px auto;
+}
