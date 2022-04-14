@@ -29,3 +29,11 @@
     cursor: pointer;
 }
 
+.pointer{
+    cursor: pointer;
+    color: #F67280;
+}
+
+.pointer:hover{
+    text-decoration: underline;
+}

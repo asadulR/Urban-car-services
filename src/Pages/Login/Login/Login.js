@@ -1,10 +1,15 @@
+import { async } from '@firebase/util';
 import React, { useRef } from 'react';
 import { Button, Form, } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 import '../Login/Login.css';
 import SocialLogin from '../SocialLogin/SocialLogin';
+
+import toast, { Toaster } from 'react-hot-toast';
+const notify = () => toast('Here is your toast.');
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -20,6 +25,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
 
     const handleLogin = event => {
@@ -30,18 +36,19 @@ const Login = () => {
         // console.log(email, password);
 
         signInWithEmailAndPassword(email, password);
-        emailRef.current.value = ' ';
-        passwordRef.current.value = ' ';
+        emailRef.current.value = '';
+        passwordRef.current.value = '';
     }
 
+    if(loading || sending){
+        return <Loading/>
+    }
     if (error) {
 
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
- 
-
     }
 
-    if(user){
+    if (user) {
         navigate(from, { replace: true });
     }
 
@@ -49,6 +56,15 @@ const Login = () => {
         navigate('/signup')
     }
 
+    const resetPassword = async() => {
+        const email = emailRef.current.value;
+        if(email){
+            await sendPasswordResetEmail(email);
+          toast.success('Sent email');
+        }else{
+            toast.error('please enter email')
+        }
+    }
 
     return (
         <div className='container'>
@@ -68,14 +84,15 @@ const Login = () => {
 
                     {/* <p className='mt-4'>New to Urban Car Service ? <Link className='signup-link' to='/signup'>Signup</Link></p> */}
                     <p className='mt-4'>New to Urban Car Service ? <span onClick={navigateSignup} className='signup-link'>Sign up</span></p>
+                    <span onClick={resetPassword} className='my-0 pointer'>Forget password ?</span>
                     <div className='text-center mt-5'>
                         <Button className='login-btn py-2 fs-5' type="submit">
                             Log in
                         </Button>
                     </div>
                 </Form>
-
-                <SocialLogin/>
+                <Toaster />
+                <SocialLogin />
             </div>
         </div>
     );
