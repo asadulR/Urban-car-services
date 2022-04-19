@@ -6,6 +6,7 @@ import '../Login/Login.css';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 
 const Signup = () => {
@@ -58,6 +59,7 @@ const Signup = () => {
 
     return (
         <div className='container'>
+            <PageTitle title="Signup"/>
             <div className='form-container'>
                 <h2 className='text-center mb-5 fw-bold login-title'>Please Sign up</h2>
                 <Form onSubmit={handleSignup}>

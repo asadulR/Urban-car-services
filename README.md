@@ -11,10 +11,10 @@
 
 
 
-## Uued Packges : 
+## Used Packges : 
 
 - React
-- React Router
+- React Router 
 - React Bootstrap
 - Custom API
 - react toast

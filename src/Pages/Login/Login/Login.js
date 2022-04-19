@@ -9,6 +9,7 @@ import '../Login/Login.css';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 import toast, { Toaster } from 'react-hot-toast';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 const notify = () => toast('Here is your toast.');
 const Login = () => {
     const emailRef = useRef('');
@@ -68,6 +69,7 @@ const Login = () => {
 
     return (
         <div className='container'>
+            <PageTitle title="Login"/>
             <div className='form-container'>
                 <h2 className='text-center mb-5 fw-bold login-title'>Please Log in</h2>
                 <Form onSubmit={handleLogin}>
