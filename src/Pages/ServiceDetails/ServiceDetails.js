@@ -16,7 +16,7 @@ const ServiceDetails = () => {
         <div>
             <h2>You are about to book: {service.name}</h2>
             <div className='text-center my-5' style={{minHeight:'300px'}}>
-                <Link to='/checkout'>
+                <Link to={`/checkout/${serviceId}`}>
                     <button className='btn btn-primary'>Proceed Checkout</button>
                 </Link>
             </div>
