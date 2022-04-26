@@ -9,7 +9,7 @@ const Order = () => {
     const [user] = useAuthState(auth);
     const userEmail = user?.email;
     useEffect(() => {
-        const url = `http://localhost:5000/order?email=${userEmail}`;
+        const url = `https://radiant-sierra-97626.herokuapp.com/order?email=${userEmail}`;
         fetch(url)
         .then(res => res.json())
         .then(data => {

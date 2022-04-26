@@ -21,7 +21,7 @@ const Checkout = () => {
             address: event.target.address.value,
             phone: event.target.phone.value
         };
-        const url = `http://localhost:5000/order/`;
+        const url = `https://radiant-sierra-97626.herokuapp.com/order/`;
 
         fetch(url, {
             method: 'POST',
